@@ -16,7 +16,7 @@ auth --passalgo=sha512 --useshadow
 selinux --enforcing
 firewall --enabled --ssh
 firstboot --disable
-
+network --dhcp
 
 %post --log=/root/ks-post-v2v.log --erroronfail
 # Add RHEL OSP repos before Image build
@@ -26,6 +26,7 @@ firstboot --disable
 %packages
 ansible
 ovirt-ansible-v2v-conversion-host
+cloud-init
 
 # tasks/install.yml
 nbdkit  # nbdkit source requires RHEL 7.6 or RHV channel
